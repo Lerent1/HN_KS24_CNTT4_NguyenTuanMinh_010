@@ -93,7 +93,7 @@ void deleteManage() {
     while (manage != NULL) {
         if (manage->id == id) {
             if (current == NULL) {
-                manageHead = current->next;
+                manageHead = manage->next;
             } else {
                 current->next = manage->next;
             }
