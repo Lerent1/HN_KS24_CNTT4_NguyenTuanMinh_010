@@ -90,12 +90,12 @@ void deleteManage() {
 
     Manage *manage = manageHead;
     Manage *current = NULL;
-    while (manageHead != NULL) {
-        if (manageHead->id == id) {
+    while (manage != NULL) {
+        if (manage->id == id) {
             if (current == NULL) {
-                current->next = manage->next;
+                manageHead = current->next;
             } else {
-                manage->next = manageHead;
+                current->next = manage->next;
             }
             free(manage);
             return;
