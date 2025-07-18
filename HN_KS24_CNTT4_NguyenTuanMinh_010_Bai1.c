@@ -96,9 +96,9 @@ void deleteManage() {
                 current->next = manage->next;
             } else {
                 manage->next = manageHead;
-                free(manage);
-                return;
             }
+            free(manage);
+            return;
         }
         current = manageHead;
         manageHead = manageHead->next;
@@ -112,7 +112,7 @@ void updateManage() {
     getchar();
 
     Manage *manage = manageHead;
-    while (manageHead != NULL) {
+    while (manage != NULL) {
         if (manage->id == id) {
             printf("Hay nhap ten moi: ");
             scanf("%s", manage->name);
@@ -124,7 +124,7 @@ void updateManage() {
             scanf("%s", manage->salary);
             getchar();
         }
-        manage->next = manageHead;
+        manage = manage->next;
     }
 }
 
@@ -161,7 +161,7 @@ void searchName() {
 
     Manage *manage = manageHead;
     int found = 0;
-    while (manageHead != NULL) {
+    while (manage != NULL) {
         if (strcmp(search, manage->name) == 0) {
             printf("ID: %d\n", manage->id);
             printf("Name: %s\n", manage->name);
